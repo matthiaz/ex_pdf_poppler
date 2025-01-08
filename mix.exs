@@ -3,7 +3,7 @@ defmodule ExPdfPoppler.MixProject do
 
   def project do
     [
-      app: :ex_pdf_reader,
+      app: :ex_pdf_poppler,
       version: "0.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
@@ -23,17 +23,17 @@ defmodule ExPdfPoppler.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:briefly, "~> 0.5"}
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
   defp package() do
     [
-      name: :ex_pdf_reader,
+      name: :ex_pdf_poppler,
       maintainers: ["Matthias Van Woensel"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/matthiaz/ex_pdf_poppler"},
-      files: ~w(lib mix.exs README.md LICENSE)
+      files: ~w(lib mix.exs README.md LICENSE.md)
     ]
   end
 end

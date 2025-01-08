@@ -40,7 +40,7 @@ defmodule ExPdfPoppler do
   def split(source_file, dest_file_pattern, opts \\ []) do
     cmd_args = [source_file, dest_file_pattern] ++ opts
     {:ok, _output} = exec("pdfseparate", cmd_args)
-    {:ok, Path.wildcard(dest_file_pattern |> String.replace(~r"%[0-9]*d","*"))}
+    {:ok, Path.wildcard(dest_file_pattern |> String.replace(~r"%[0-9]*d", "*"))}
   end
 
   defp exec(cmd, cmd_args) do
