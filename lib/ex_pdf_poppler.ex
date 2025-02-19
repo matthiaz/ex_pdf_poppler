@@ -35,15 +35,8 @@ defmodule ExPdfPoppler do
   end
 
   def unite!(source_files, destination_file, opts \\ []) do
-    case unite(source_files, destination_file, opts) do
-      {:ok, destination_file} ->
-        destination_file
-
-      {:error, reason} ->
-        raise ExPdfPoppler.Error,
-          reason: reason,
-          action: "unite"
-    end
+    {:ok, destination_file} = unite(source_files, destination_file, opts)
+    destination_file
   end
 
   @doc """
@@ -58,17 +51,9 @@ defmodule ExPdfPoppler do
   end
 
   def split!(source_file, dest_file_pattern, opts \\ []) do
-    case split(source_file, dest_file_pattern, opts) do
-      {:ok, list_of_files_created} ->
-        list_of_files_created
-
-      {:error, reason} ->
-        raise ExPdfPoppler.Error,
-          reason: reason,
-          action: "split"
-    end
+    {:ok, list_of_files_created} = split(source_file, dest_file_pattern, opts)
+    list_of_files_created
   end
-
 
   defp exec(cmd, cmd_args) do
     if is_poppler_installed?() do
